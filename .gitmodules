@@ -1,0 +1,21 @@
+[submodule "inferences/Cheetah"]
+	path = inferences/Cheetah
+	url = https://github.com/DA3M0/Cheetah.git
+[submodule "inferences/Maya"]
+	path = inferences/Maya
+	url = https://github.com/mw00/project-maya.git
+[submodule "inferences/Strata"]
+	path = inferences/Strata
+	url = https://github.com/Niko1221/Strata.git
+[submodule "inferences/TensorFold"]
+	path = inferences/TensorFold
+	url = https://github.com/ashhart/TensorFold.git
+[submodule "inferences/XeMaya"]
+	path = inferences/XeMaya
+	url = https://github.com/Jumbomuffin777/XeMaya.git
+[submodule "inferences/XeStrata"]
+	path = inferences/XeStrata
+	url = https://github.com/MistVVK/XeStrata.git
+[submodule ".agents"]
+	path = .agents
+	url = https://github.com/sybil-solutions/inference-optimisation-skill
