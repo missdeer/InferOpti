@@ -19,3 +19,12 @@
 [submodule ".agents"]
 	path = .agents
 	url = https://github.com/sybil-solutions/inference-optimisation-skill
+[submodule "inferences/basalt"]
+	path = inferences/basalt
+	url = https://github.com/jesdga95/basalt.git
+[submodule "inferences/yasakani"]
+	path = inferences/yasakani
+	url = https://github.com/yasakani-dev/yasakani.git
+[submodule "inferences/sync-strata"]
+	path = inferences/sync-strata
+	url = https://github.com/hiruhiru2005/sync-strata.git
