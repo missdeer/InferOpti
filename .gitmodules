@@ -28,3 +28,15 @@
 [submodule "inferences/sync-strata"]
 	path = inferences/sync-strata
 	url = https://github.com/hiruhiru2005/sync-strata.git
+[submodule "inferences/Speedy"]
+	path = inferences/Speedy
+	url = https://github.com/DevDock-AI/Speedy.git
+[submodule "inferences/QuixiInfer"]
+	path = inferences/QuixiInfer
+	url = https://github.com/QuixiAI/QuixiInfer.git
+[submodule "inferences/splash"]
+	path = inferences/splash
+	url = https://github.com/incoai/splash.git
+[submodule "inferences/kinetic"]
+	path = inferences/kinetic
+	url = https://github.com/Veloresearch/kinetic.git
