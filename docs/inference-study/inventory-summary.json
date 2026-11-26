@@ -7,6 +7,7 @@
     ".cpp",
     ".cu",
     ".cuh",
+    ".glsl",
     ".h",
     ".hpp",
     ".inc",
@@ -36,6 +37,7 @@
     "kinetic": 478,
     "Maya": 1095,
     "QuixiInfer": 124,
+    "RustingStrata": 191,
     "Speedy": 1817,
     "splash": 768,
     "Strata": 3080,
@@ -46,7 +48,7 @@
     "XeStrata": 1072,
     "yasakani": 263
   },
-  "note": "Unified inventory and hashes across all projects, not a claim of complete manual reading. Included .inc files use the same extension policy across projects; archive entries are not assumed active.",
+  "note": "Unified inventory/hashes, not a claim of complete manual reading. Includes active-source .inc and .glsl fragments across projects; archive entries are not assumed active; precompiled SPIR-V binaries are not source entries.",
   "classification_counts_by_project": {
     "basalt": {
       "source": 871,
@@ -69,6 +71,11 @@
       "test": 11,
       "source": 98,
       "tool": 15
+    },
+    "RustingStrata": {
+      "source": 140,
+      "tool": 26,
+      "test": 25
     },
     "Speedy": {
       "source": 962,

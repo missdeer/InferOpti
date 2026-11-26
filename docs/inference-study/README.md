@@ -1,6 +1,6 @@
 # 消费级硬件推理引擎源码学习档案
 
-本档案服务于 ComfyUI 推理后端优化。研究日期为 **2026-11-26**，目前覆盖本机 `inferences/` 中 **14 个项目**的固定 checkout。没有拉取远端更新，没有构建或运行模型。源码存在、入口启用、真机验证和可迁移收益是四件不同的事。
+本档案服务于 ComfyUI 推理后端优化。研究日期为 **2026-11-26**，目前覆盖本机 `inferences/` 中 **15 个项目**的固定 checkout。没有拉取远端更新，没有构建或运行模型。源码存在、入口启用、真机验证和可迁移收益是四件不同的事。
 
 主要结论：这批项目的共同价值包括**权重与状态分层、显存和锁页预算、数据搬运与计算重叠、压缩布局与算子协同、跨请求复用、按硬件成本调度、严格数值验证**。用“节点间异步 + 单节点新算法”概括会漏掉资源规划和重复工作消除。
 
@@ -15,11 +15,11 @@
 | [ComfyUI 迁移与实验清单](COMFYUI.md) | 对照当前实现，确定候选改进与验收要求 |
 | [研究范围与跟踪记录](TRACKING.md) | 已覆盖路径、未核读范围、后续更新流程 |
 | [snapshots.json](snapshots.json) | 机器可读的 HEAD、日期、主题、分支、remote、工作区状态及 gitlink |
-| [evidence.csv](evidence.csv) | 223 个源码/说明定位条目，附固定 commit 的远端链接 |
-| [source-files.csv](source-files.csv) | 21,990 个纳入清单的源码、测试和工具文件及 SHA-256 |
+| [evidence.csv](evidence.csv) | 265 个源码/说明定位条目，附固定 commit 的远端链接 |
+| [source-files.csv](source-files.csv) | 22,181 个纳入清单的源码、测试和工具文件及 SHA-256 |
 | [inventory-summary.json](inventory-summary.json) | 所有项目统一的扩展名、排除规则及文件计数 |
 
-所有项目共用版本、证据和文件索引；各记录保留原始采集时间。文件清单统一包含实际内核使用的`.inc`片段，清单条目不代表全部已逐行阅读。
+所有项目共用版本、证据和文件索引；各记录保留原始采集时间。文件清单统一包含实际内核使用的`.inc`和`.glsl`片段，清单条目不代表全部已逐行阅读。
 
 ## 逐项目记录
 
@@ -39,10 +39,13 @@
 | TensorFold | 内存准入、arena、图缓存、Qwen/MOSS 图像与窄范围 ComfyUI 接入 | [TensorFold](projects/TensorFold.md) |
 | YASAKANI | 压缩计算、KV codec、copy/edit draft、宽 pass 与能力检查 | [yasakani](projects/yasakani.md) |
 | tqLLM | TQ/TQT校准与native GEMM、成本交点、自动fit、KV分层、驻留重规划、精度契约 | [tqLLM](projects/tqLLM.md) |
+| RustingStrata | Rust后端、专家mailbox协作、Grouped prefill、编译缓存、Vulkan资源预检与恢复、预算化校准 | [RustingStrata](projects/RustingStrata.md) |
 
 ## 如何理解覆盖程度
 
 已对每个项目的目录、说明、推理实现入口和相关核心源文件做静态阅读，沿内存、计算、缓存和调度路径记录方法。**这不是所有清单文件的逐行全量审计**；文件清单用于定位和后续差分，不代表逐个文件已核读。详细取舍与仍需深挖的部分见 [TRACKING.md](TRACKING.md)。没有把 README 的性能数字当成本次测量，也没有判定这些项目在目标消费卡上的速度排名。
+
+RustingStrata是独立Rust执行路径，部分HIP兼容实现注明参考Strata；同名不代表完整继承同一执行器。
 
 主线关系应理解为代码与思路的继承：Strata → Speedy / Sync-Strata / Basalt；Maya 有 Strata 血缘并发展模型专用执行器；XeStrata 源自 Strata；XeMaya 的直接基础是 XeStrata，参考 Maya 的模型与量化方案。**未根据目录名称假定所有分支都从同一个版本分叉，也未声称所有相同方法都是各项目独立发明。**
 

@@ -2,11 +2,11 @@
 
 ## 研究记录：2026-11-26
 
-目标：研究`inferences/`各项目面向消费级、小显存硬件的优化方法，积累ComfyUI后端经验。14个项目作为同级内容维护，各有项目笔记，共用一份版本、证据、文件和方法索引。
+目标：研究`inferences/`各项目面向消费级、小显存硬件的优化方法，积累ComfyUI后端经验。15个项目作为同级内容维护，各有项目笔记，共用一份版本、证据、文件和方法索引。
 
-- 统一[snapshots.json](snapshots.json)保存14个项目、内嵌engine及ComfyUI基线的16条源码版本；每条保留原采集时间，父仓库观察另列`parent_history`。
-- 统一[evidence.csv](evidence.csv)保存223条证据的源码位置与固定commit链接。
-- 统一[source-files.csv](source-files.csv)保存21,990个文件的路径、大小和SHA-256；包括CUDA实际使用的`.inc`片段，所有项目采用同一扩展名和排除规则。
+- 统一[snapshots.json](snapshots.json)保存15个项目、内嵌engine及ComfyUI基线的17条源码版本；每条保留原采集时间，父仓库观察另列`parent_history`。
+- 统一[evidence.csv](evidence.csv)保存265条证据的源码位置与固定commit链接。
+- 统一[source-files.csv](source-files.csv)保存22,181个文件的路径、大小和SHA-256；包括CUDA实际使用的`.inc`和`.glsl`片段，所有项目采用同一扩展名和排除规则。
 - [METHODS.md](METHODS.md)按内存、搬运、计算、复用和调度归类；[COMFYUI.md](COMFYUI.md)按候选优先级、接入和验收组织，不按研究加入时间分章节。
 
 历史采集数据的原commit与时间保留；旧文档组织可以从Git历史查阅。整理目录不代表重新核读或重新测量旧项目。
@@ -29,6 +29,7 @@
 | TensorFold | CUDA 内存/arena/graph、Metal resident、Qwen/MOSS 图像、ComfyUI installer | 数千其他 family/test/kernel 文件、语音/训练/app/cluster；没有下载 pinned 媒体历史源包 |
 | YASAKANI | 压缩 GEMM、format、GPU caps、Engine35、copy/edit proposal、KV codec、prefill 模式 | 全部私有格式转换训练、每种 attention/codec 模式、真机宽 pass 自检 |
 | tqLLM | dense CUDA格式/fit、TQ/TQT校准、KV分层、专家cache/prefill、Inkling驻留/spec、Metal调度/ANE、serve | 所有模型/vision/DSpine训练、全部内嵌shader、第三方代码及真机复测 |
+| RustingStrata | Backend、expert cache/worker、CPU dot、prefill、CUDA/HIP/Vulkan队列/核资源、校准/CLI、代表性专用forward及状态缓存 | 全部模型/vision、HTTP/UI/MCP、量化表、CUDA/GLSL逐核与SPIR-V真机验证 |
 
 `evidence.csv`是结论定位索引，项目文档和测试仅用于理解机制；有测试不表示本轮执行过或真卡已通过。
 
@@ -69,4 +70,4 @@
 
 ## 归档一致性检查
 
-统一整理后检查通过：14份同级项目笔记、16条源码版本、223条证据、21,990个文件SHA-256及422个本地链接；所有原有版本元数据、证据和文件哈希均保留，已移除重复目录及其引用。本轮只整理文档和索引，没有构建或运行推理代码。
+2026-11-26：统一档案检查通过15份项目笔记、17条源码版本、265条固定commit证据、22,181个文件SHA-256及523个本地链接。RustingStrata记录36项方法、42项证据和191个源码/测试/工具文件；工作区干净，HEAD与父仓库gitlink一致。旧项目元数据、证据及文件哈希完整保留，`.glsl`纳入统一源码清单。`git diff --check`通过。本轮未构建、未跑仓库单测、模型或硬件benchmark，结论仍是静态分析。

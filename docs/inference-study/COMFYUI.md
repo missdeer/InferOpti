@@ -21,8 +21,8 @@
 
 | 优先级 | 候选 | 首要参考 | 最小实验 | 何时有价值 |
 | --- | --- | --- | --- | --- |
-| P0 | 建立真实阶段、copy 和内存账本 | Strata/Basalt 的分阶段测量、XeStrata 预算 | 同一 workflow 记录加载、TE、每步 DiT、VAE、输出；区分 CPU prepare、H2D、GPU compute | 先确定 bottleneck，避免重写已经优化的路径 |
-| P1 | 分阶段驻留和 scratch 复用 | XeStrata ImagePipeline、TensorFold Scratch | 固定 TE→DiT→VAE，记录每阶段 live/peak 与可借还容量 | 模型换入换出或中间激活造成明显峰值 |
+| P0 | 建立真实阶段、copy 和内存账本 | Strata/Basalt的测量、XeStrata预算、RustingStrata校准 | 同一 workflow 记录加载、TE、每步 DiT、VAE、输出；区分 CPU prepare、H2D、GPU compute | 先确定 bottleneck，避免重写已经优化的路径 |
+| P1 | 分阶段驻留和 scratch 复用 | XeStrata ImagePipeline、TensorFold Scratch、RustingStrata slab | 固定 TE→DiT→VAE，记录每阶段 live/peak 与可借还容量 | 模型换入换出或中间激活造成明显峰值 |
 | P1 | 可测量的层预取策略 | XeStrata LayerStream、Maya cost model | 现有预取为对照，比较常驻层份额、1/2 槽、prepare 提前量 | GPU 等权重而空闲，且有足够 workspace |
 | P1 | 减少 host 中转与转换 | XeMaya read_blobs、Strata PinnedRing、tqLLM HostTier | 测直接填 pinned，以及准备后副本保留/压力下去重的H2D、D2H与RAM | 主线程准备时间或 pageable staging 暴露明显 |
 | P1 | 确定性条件缓存 | XeStrata/TensorFold 的条件路径 | 先缓存可证明独立的编码结果；再考虑模型内 prefix | 重复 prompt/参考资产，编码或 prefix 占比足够 |
@@ -30,6 +30,7 @@
 | P2 | 权重格式与实际 GEMM 对齐 | XeStrata DitProducts、Basalt、Sync-Strata、tqLLM PrefillPath | 对一个Linear按格式/M/N/K比较native与反量化+BLAS的交点，单列准备成本和scratch | 目标硬件/尺寸存在更快可用核，质量可接受 |
 | P2 | 消费端融合 scale/bias/norm/gate | XeStrata DitOut、TensorFold image kernels | 保持主要 GEMM 不变，只融合确认的相邻小算子 | profiler 显示临时读写或 launch 开销占比高 |
 | P2 | 图捕获与卸载联合规划 | Strata VMM、TensorFold Graph Cache、tqLLM GraphLru、本地ComfyUI | 固定尺寸桶，测owner/shape/权重身份、容量上限/热floor、捕获命中和eager回退 | CPU 提交明显，重复形状多且地址能稳定 |
+| P2 | 编译缓存与核资源预检 | RustingStrata cubin cache、Vulkan preflight | 固定一个目标核，记录编译/加载/pipeline首次成本；在分配权重前核查特化后shared memory | 首次请求明显慢或小卡资源限制导致装载后失败 |
 | P2 | VAE 自适应 tile | XeStrata QiVae | 对照现有 VAE tiling，测 overlap、tile shape、质量 | 高分辨率 VAE 峰值成为限制 |
 | P3 | 跨任务共享模型 pass | Kinetic Convoy、QuixiInfer、Splash | 同模型/尺寸/step 状态下的小批任务，限制等待 | 多用户服务且能满足内存和 p95 预算 |
 | P3 | 多卡/CPU/SSD 混合执行 | Maya、Basalt、XeMaya、QuixiInfer | 先测链路和串行模型路径，逐个设备加入 | 明确的容量需要或可隐藏通信，收益覆盖复杂度 |
@@ -37,6 +38,8 @@
 P0–P3 是建议顺序，不表示每项都要实现。上一项未发现瓶颈时，应跳过对应改造。
 
 资源策略还需覆盖所有forward入口。[tqLLM](projects/tqLLM.md)的驻留重规划修复说明：首请求与draft/verify路径漏更新会产生明显退化；稳定后应减少更新频率，记录维护成本。
+
+[RustingStrata](projects/RustingStrata.md)还提示：CPU/GPU协作若在GPU中无限等待，可能触发driver watchdog；需要有界等待、明确恢复点或失败传播。其OS页预读、H2D及L2预取应分别测量，不能用一个“异步”标签统计收益。
 
 ## 3. 为什么 dense DiT 不能照搬 MoE 热专家缓存
 
@@ -66,6 +69,8 @@ XeStrata 的代码明确在 ControlNet 激活时重算相关 prefix、LoRA 改�
 
 LoRA参数更新与缓存失效要分别处理。tqLLM用device scale让已捕获graph读取新系数，但这不保证编码条件、权重准备结果或ModelPatcher缓存仍有效。
 
+RustingStrata当前持久prefix fingerprint主要是几何/KV结构，专家profile也未绑定完整权重hash。若借鉴这些缓存，不可省略ComfyUI的模型/adapter/输入/预处理身份。
+
 持久化或跨用户缓存还应有命名空间和大小上限；不要让某个大参考图占满所有请求预算。缓存命中收益、维护成本和缓存占用须同时记录。
 
 ## 5. 接入边界建议
@@ -76,7 +81,7 @@ LoRA参数更新与缓存失效要分别处理。tqLLM用device scale让已捕�
 
 TensorFold 的本地 ComfyUI runtime 是有用的交付参考，但当前只限定 GB10 sm_121 和 MOSS BF16，且媒体源码固定到不同于本次 TensorFold HEAD 的 `1ddac962008367ec2c50e10202c910ecf430b5eb`。本轮没有下载该历史源包。安装器、HEAD 的模型代码、兼容 patch 和实际安装 worker 要分别定位，不能混成同一份实现。
 
-商业实现引用代码前按具体文件检查许可：尤其 Speedy 自有贡献的 Non-Commercial、XeStrata/XeMaya 的 LGPL 及各引入文件声明。这里记录本地许可证事实，不代替具体交付方案的许可核查。
+商业实现引用代码前按具体文件检查许可：尤其 Speedy自有贡献的Non-Commercial、RustingStrata自有代码的定制许可证、XeStrata/XeMaya的LGPL 及各引入文件声明。这里记录本地许可证事实，不代替具体交付方案的许可核查。
 
 ## 6. 基准与验收
 
@@ -93,5 +98,7 @@ TensorFold 的本地 ComfyUI runtime 是有用的交付参考，但当前只限�
 质量分两级：保持数学和精度的改动先比较关键中间 tensor 误差和最终图；量化、步数、蒸馏、tile 和近似缓存单独列实验，人工检查人脸身份、衣服文字/花纹、颜色、边缘与姿态。视频另测时序稳定和接缝。相同 seed 不保证跨后端逐位相同，也不应把“不逐位相同”直接等同于可接受质量。
 
 异步/缓存改动另测：取消、异常、低 pinned 预算、连续变尺寸、LoRA 切换、ControlNet 开关、重复运行和并发。目标是没有旧权重/旧条件污染、没有覆盖在途 buffer，也没有随请求增长的内存滞留。
+
+自动调优可参考RustingStrata的样本预算、失败trace和coarse→refinement，但应固定用户资源与质量配置，并要求每个代表负载/p95达标。prefill/decode几何均值只表达折中，不能当作单项性能无回退保证。
 
 没有真机记录前，候选状态保持“待验证”，不填预计倍数。已有技术路线中的理论目标也不能改写为本轮实测。

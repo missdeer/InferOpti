@@ -1,5 +1,5 @@
 {
-  "captured_at_utc": "2026-11-26T06:18:35.650042+00:00",
+  "captured_at_utc": "2026-11-26T09:36:12.272371+00:00",
   "scope": "Unified source-study catalog. Each repository retains its original capture time and commit; parent observations are historical metadata. No fetch or checkout.",
   "repositories": [
     {
@@ -73,6 +73,18 @@
       "untracked_entries": 0,
       "status_porcelain": [],
       "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/RustingStrata",
+      "commit": "e50ec2cc0ecf802319623685ef41d2101d19561b",
+      "commit_date": "2026-11-26T09:45:19+01:00",
+      "subject": "raon: the greedy picks use ops::argmax (no panic on NaN logits); a drafter block size under 2 no longer panics in clamp; a zero embedding, head, rank or expert count in the metadata is an error; expert_weights_scale 0 means no scaling, as in llama.cpp",
+      "branch": "main",
+      "origin": "https://github.com/RustingStudio/RustingStrata.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T09:36:12.272371+00:00"
     },
     {
       "path": "inferences/Speedy",
@@ -305,6 +317,91 @@
         }
       ],
       "captured_at_utc": "2026-11-26T06:18:35.650042+00:00"
+    },
+    {
+      "path": ".",
+      "commit": "5a68ee5199a4413aa179a0c749be8a02db56d507",
+      "commit_date": "2026-11-26T17:22:55+08:00",
+      "subject": "integrate tqLLM into the shared inference study",
+      "branch": "master",
+      "origin": "",
+      "tracked_dirty": false,
+      "untracked_entries": 6,
+      "status_porcelain": [
+        "?? ComfyUI",
+        "?? ComfyUI-Optimization-business.md",
+        "?? ComfyUI-Optimization-tech.md",
+        "?? ComfyUI_AIGC_优化业务与技术路线研究报告_2026-11.pdf",
+        "?? ComfyUI_Optimization_Business_Technical_Report_2026-11-23.pdf",
+        "?? performance-checks.txt"
+      ],
+      "captured_at_utc": "2026-11-26T09:36:12.272371+00:00",
+      "gitlinks": [
+        {
+          "path": ".agents",
+          "recorded_commit": "fda968e7fc1996aa23c67139c755fe541c9d4be0"
+        },
+        {
+          "path": "inferences/Cheetah",
+          "recorded_commit": "e3451a52872c95e8c3af0d347c20dbd55004c6fa"
+        },
+        {
+          "path": "inferences/Maya",
+          "recorded_commit": "53885cef8faf0d3b3f7e28c0b1537a056c1f3ecf"
+        },
+        {
+          "path": "inferences/QuixiInfer",
+          "recorded_commit": "dc5dbc1bb1cf7a31f6e8a240f7a34bdf2014268b"
+        },
+        {
+          "path": "inferences/RustingStrata",
+          "recorded_commit": "e50ec2cc0ecf802319623685ef41d2101d19561b"
+        },
+        {
+          "path": "inferences/Speedy",
+          "recorded_commit": "1f172963a0a483672381e74254b283df22c25e81"
+        },
+        {
+          "path": "inferences/Strata",
+          "recorded_commit": "c234774038d1c9249cb33637d27b895d47b39786"
+        },
+        {
+          "path": "inferences/TensorFold",
+          "recorded_commit": "84d9b6ba1367eddd4f97655185a597b5f909be6c"
+        },
+        {
+          "path": "inferences/XeMaya",
+          "recorded_commit": "8fa4141666e10d81bf932ab4625aa52a37eed4bd"
+        },
+        {
+          "path": "inferences/XeStrata",
+          "recorded_commit": "aadd4f9fea9b5b319855826f6a33c72dce5b529e"
+        },
+        {
+          "path": "inferences/basalt",
+          "recorded_commit": "5b8a82c6b7e1069adbce42854e0732b2b19e4f32"
+        },
+        {
+          "path": "inferences/kinetic",
+          "recorded_commit": "1b671b9eea0db10c1d22c51bf524d496d6c6736c"
+        },
+        {
+          "path": "inferences/splash",
+          "recorded_commit": "d40c250ff248938edebdb91fb6124514e32daeaa"
+        },
+        {
+          "path": "inferences/sync-strata",
+          "recorded_commit": "22b5db9ddd60768fab3a33cb19fbde36084e2dec"
+        },
+        {
+          "path": "inferences/tqLLM",
+          "recorded_commit": "7df840632cd3f108de459e0944b9b6d115532689"
+        },
+        {
+          "path": "inferences/yasakani",
+          "recorded_commit": "631fdfd01f071bdb9131e26da8e06d5ddc39b2a8"
+        }
+      ]
     }
   ]
 }
