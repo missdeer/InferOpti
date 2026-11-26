@@ -43,3 +43,6 @@
 [submodule "inferences/tqLLM"]
 	path = inferences/tqLLM
 	url = https://github.com/turbo-tan/tqllm.git
+[submodule "inferences/RustingStrata"]
+	path = inferences/RustingStrata
+	url = https://github.com/RustingStudio/RustingStrata.git
