@@ -40,3 +40,6 @@
 [submodule "inferences/kinetic"]
 	path = inferences/kinetic
 	url = https://github.com/Veloresearch/kinetic.git
+[submodule "inferences/tqLLM"]
+	path = inferences/tqLLM
+	url = https://github.com/turbo-tan/tqllm.git
