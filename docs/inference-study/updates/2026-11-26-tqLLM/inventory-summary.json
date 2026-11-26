@@ -1,0 +1,43 @@
+{
+  "source_extensions": [
+    ".c",
+    ".cc",
+    ".cl",
+    ".comp",
+    ".cpp",
+    ".cu",
+    ".cuh",
+    ".h",
+    ".hpp",
+    ".inc",
+    ".m",
+    ".metal",
+    ".mm",
+    ".py",
+    ".rs",
+    ".wgsl",
+    ".zig"
+  ],
+  "excluded_path_components": [
+    ".git",
+    ".lint",
+    ".tools",
+    "__pycache__",
+    "bench-results",
+    "fixtures",
+    "node_modules",
+    "ref",
+    "results",
+    "third_party"
+  ],
+  "files_by_project": {
+    "tqLLM": 825
+  },
+  "classification_counts": {
+    "archive": 1,
+    "test": 342,
+    "source": 395,
+    "tool": 87
+  },
+  "note": "Inventory/hashes only, not a claim of complete manual reading. Added .inc because active CUDA kernels use included source; archive is indexed but never assumed active."
+}

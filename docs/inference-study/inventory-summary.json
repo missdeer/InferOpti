@@ -1,0 +1,48 @@
+{
+  "source_extensions": [
+    ".c",
+    ".cc",
+    ".cl",
+    ".comp",
+    ".cpp",
+    ".cu",
+    ".cuh",
+    ".h",
+    ".hpp",
+    ".m",
+    ".metal",
+    ".mm",
+    ".py",
+    ".rs",
+    ".wgsl",
+    ".zig"
+  ],
+  "excluded_path_components": [
+    ".git",
+    ".lint",
+    ".tools",
+    "__pycache__",
+    "bench-results",
+    "fixtures",
+    "node_modules",
+    "ref",
+    "results",
+    "third_party"
+  ],
+  "files_by_project": {
+    "basalt": 1265,
+    "Cheetah": 56,
+    "kinetic": 478,
+    "Maya": 1085,
+    "QuixiInfer": 124,
+    "Speedy": 1805,
+    "splash": 768,
+    "Strata": 3061,
+    "sync-strata": 1687,
+    "TensorFold": 8772,
+    "XeMaya": 669,
+    "XeStrata": 1068,
+    "yasakani": 250
+  },
+  "note": "Inventory and hashes only. A listed file does not imply a complete manual read or verification."
+}
