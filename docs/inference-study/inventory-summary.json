@@ -9,6 +9,7 @@
     ".cuh",
     ".h",
     ".hpp",
+    ".inc",
     ".m",
     ".metal",
     ".mm",
@@ -30,19 +31,90 @@
     "third_party"
   ],
   "files_by_project": {
-    "basalt": 1265,
+    "basalt": 1272,
     "Cheetah": 56,
     "kinetic": 478,
-    "Maya": 1085,
+    "Maya": 1095,
     "QuixiInfer": 124,
-    "Speedy": 1805,
+    "Speedy": 1817,
     "splash": 768,
-    "Strata": 3061,
-    "sync-strata": 1687,
+    "Strata": 3080,
+    "sync-strata": 1697,
     "TensorFold": 8772,
-    "XeMaya": 669,
-    "XeStrata": 1068,
-    "yasakani": 250
+    "tqLLM": 825,
+    "XeMaya": 671,
+    "XeStrata": 1072,
+    "yasakani": 263
   },
-  "note": "Inventory and hashes only. A listed file does not imply a complete manual read or verification."
+  "note": "Unified inventory and hashes across all projects, not a claim of complete manual reading. Included .inc files use the same extension policy across projects; archive entries are not assumed active.",
+  "classification_counts_by_project": {
+    "basalt": {
+      "source": 871,
+      "test": 360,
+      "tool": 41
+    },
+    "Cheetah": {
+      "source": 56
+    },
+    "kinetic": {
+      "source": 416,
+      "test": 62
+    },
+    "Maya": {
+      "source": 577,
+      "test": 394,
+      "tool": 124
+    },
+    "QuixiInfer": {
+      "test": 11,
+      "source": 98,
+      "tool": 15
+    },
+    "Speedy": {
+      "source": 962,
+      "test": 667,
+      "tool": 188
+    },
+    "splash": {
+      "test": 316,
+      "tool": 20,
+      "source": 432
+    },
+    "Strata": {
+      "source": 1464,
+      "tool": 347,
+      "test": 1269
+    },
+    "sync-strata": {
+      "source": 932,
+      "tool": 187,
+      "test": 578
+    },
+    "TensorFold": {
+      "source": 5259,
+      "tool": 331,
+      "test": 3182
+    },
+    "tqLLM": {
+      "archive": 1,
+      "test": 342,
+      "source": 395,
+      "tool": 87
+    },
+    "XeMaya": {
+      "test": 170,
+      "source": 435,
+      "tool": 66
+    },
+    "XeStrata": {
+      "test": 265,
+      "source": 727,
+      "tool": 80
+    },
+    "yasakani": {
+      "test": 94,
+      "source": 155,
+      "tool": 14
+    }
+  }
 }

@@ -1,20 +1,19 @@
 # 研究范围与持续跟踪
 
-## 2026-11-26 初次归档
+## 研究记录：2026-11-26
 
-用户目标：仔细研究 `inferences/` 各项目针对消费级、小显存硬件的优化机制，持续积累能够用于 ComfyUI 后端的经验；逐项目持久化策略，并保存当前完整 Git commit。
+目标：研究`inferences/`各项目面向消费级、小显存硬件的优化方法，积累ComfyUI后端经验。14个项目作为同级内容维护，各有项目笔记，共用一份版本、证据、文件和方法索引。
 
-已完成：
+- 统一[snapshots.json](snapshots.json)保存14个项目、内嵌engine及ComfyUI基线的16条源码版本；每条保留原采集时间，父仓库观察另列`parent_history`。
+- 统一[evidence.csv](evidence.csv)保存223条证据的源码位置与固定commit链接。
+- 统一[source-files.csv](source-files.csv)保存21,990个文件的路径、大小和SHA-256；包括CUDA实际使用的`.inc`片段，所有项目采用同一扩展名和排除规则。
+- [METHODS.md](METHODS.md)按内存、搬运、计算、复用和调度归类；[COMFYUI.md](COMFYUI.md)按候选优先级、接入和验收组织，不按研究加入时间分章节。
 
-- 清点 13 个项目及目录布局，读取相关 AGENTS 和项目说明。
-- 固定每个项目完整 HEAD、提交日期/主题、remote、branch、工作区与父级 gitlink；额外固定 Sync-Strata engine 和本地 ComfyUI 基线。
-- 对每个项目追踪核心内存、计算、缓存、调度实现，生成 13 份独立方法笔记和 162 项源码/说明证据定位。
-- 建立跨项目方法分类和 ComfyUI 迁移/实验清单；区分 MoE 与 dense DiT、默认与 opt-in、容量与速度、项目报告与本次验证。
-- 为 21,088 个纳入清单的源码/测试/工具文件保存路径、字节数、SHA-256，便于以后差分。
+历史采集数据的原commit与时间保留；旧文档组织可以从Git历史查阅。整理目录不代表重新核读或重新测量旧项目。
 
 ## 覆盖说明
 
-本轮是**围绕优化机制的静态研究**，不是全量代码审计，也没有逐行读完所有文件。主要沿以下调用链阅读：
+本轮是围绕优化机制的静态研究，不是全量逐行审计。文件清单用于定位与差分，不代表每个文件都完成核读。
 
 | 项目组 | 核心阅读路径 | 未展开的主要内容 |
 | --- | --- | --- |
@@ -29,8 +28,9 @@
 | Splash | MemoryPlan/Governor、WeightResidency、Scheduler、KernelSelection、ANE calibration | 每种 Metal kernel、全部模型 streaming/cache 细节、ANE 真机覆盖 |
 | TensorFold | CUDA 内存/arena/graph、Metal resident、Qwen/MOSS 图像、ComfyUI installer | 数千其他 family/test/kernel 文件、语音/训练/app/cluster；没有下载 pinned 媒体历史源包 |
 | YASAKANI | 压缩 GEMM、format、GPU caps、Engine35、copy/edit proposal、KV codec、prefill 模式 | 全部私有格式转换训练、每种 attention/codec 模式、真机宽 pass 自检 |
+| tqLLM | dense CUDA格式/fit、TQ/TQT校准、KV分层、专家cache/prefill、Inkling驻留/spec、Metal调度/ANE、serve | 所有模型/vision/DSpine训练、全部内嵌shader、第三方代码及真机复测 |
 
-`evidence.csv` 是结论引用的位置索引，也不是对每个文件完整核读的声明。仓库内文档、注释和测试代码用于理解机制；“有测试”不表示本次执行过或真卡已通过。
+`evidence.csv`是结论定位索引，项目文档和测试仅用于理解机制；有测试不表示本轮执行过或真卡已通过。
 
 ## 证据状态
 
@@ -47,7 +47,7 @@
 
 ## 下一轮更新流程
 
-1. **先保存新版本，不覆盖旧快照。** 将新的 snapshots 放到带日期的目录；比较每个 checkout HEAD 和父级 gitlink。若 dirty，保存文件差异范围，不能只记录 HEAD。
+1. **先保存新版本，不覆盖旧快照。** 同一轮版本变更按日期保存所有受影响项目的历史快照；当前统一目录更新对应项目记录，比较每个 checkout HEAD 和父级 gitlink。若 dirty，保存文件差异范围，不能只记录 HEAD。
 2. **按路径定位相关变化。** 先比较上述核心文件；目录移动时用 commit、符号和内容 hash 定位，不依赖旧路径名。
 3. **继承和新增分开。** 相同方法可能从上游同步，不能重复记作新发明；不同年份/版本的文件差异也不一定是分支独有改动。
 4. **确认开关及调用链。** 代码仍存在但入口禁用、默认改变、模型未适配、功能只进测试入口时，更新状态。
@@ -69,16 +69,4 @@
 
 ## 归档一致性检查
 
-2026-11-26：检查通过 18 份档案 Markdown 的 313 个本地链接、16 个 Git HEAD 快照、162 个证据条目及 21,088 个文件 SHA-256；13 个推理项目和嵌套 engine 仍为干净工作区，父级 gitlink 与所读 HEAD 一致。各项目笔记中的完整 commit 与快照一致。这些检查只验证文档定位和源码版本一致性，不验证推理功能、数值、速度或画质。
-
-## 2026-11-26：增量学习 tqLLM
-
-新增第14个项目的[学习笔记](projects/tqLLM.md)，38项方法、61个源码/说明证据条目。HEAD为`7df840632cd3f108de459e0944b9b6d115532689`，1.8.3；tracked clean、untracked 0；与父仓库本次索引gitlink相同。父仓库HEAD为`adfa2ae9a4c04fedbb66cce5a9bbff82f3c635bb`。
-
-本次元数据单独存到[updates/2026-11-26-tqLLM](updates/2026-11-26-tqLLM/README.md)，保留初次JSON/CSV。新增825个源/测试/工具文件哈希，包含实际CUDA include使用的`.inc`，归档旧源码单独分类。累计14个项目、223项证据、21,913条文件清单，两个批次扩展名范围不同。
-
-核心阅读覆盖：dense CUDA格式/加载/forward/fit、TQ/TQT布局及离线GPTQ/Viterbi、KV store/codec/compact、Flash-Next专家cache与prefill、Inkling驻留重规划/投机、Metal宽度/能力/融合/ANE、serve scheduler/router。没有逐行核读全部模型/vision/DSpine训练、全部内嵌shader或第三方代码，也未运行本项目测试/模型/benchmark。
-
-特别记录：fit_lossy与exact的边界；低位存储与实际MMA不同；首次draft路径也需重规划；数值不同kernel不由启动测速噪声选择；历史测试注释可能落后于当前native GEMM能力。新增ComfyUI候选仍为待验证。
-
-本次归档检查通过：14份项目笔记、418个本地链接（含根README）、38项tqLLM方法、61个固定commit证据、825个新增文件SHA-256，tqLLM HEAD/干净工作区/gitlink一致，初次机器可读档案计数保持不变。`git diff --check`通过；未运行推理代码或硬件测试。
+统一整理后检查通过：14份同级项目笔记、16条源码版本、223条证据、21,990个文件SHA-256及422个本地链接；所有原有版本元数据、证据和文件哈希均保留，已移除重复目录及其引用。本轮只整理文档和索引，没有构建或运行推理代码。

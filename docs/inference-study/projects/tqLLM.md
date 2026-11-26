@@ -7,7 +7,7 @@
 - 提交主题：tqLLM 1.8.3: first drafted reply at full speed (#106), stable dense kernels (#105), faster Mac experts (#109)
 - 本地分支：`main`；源码工作区 tracked clean、untracked 0。
 - 源仓库：https://github.com/turbo-tan/tqllm.git
-- [本次独立快照及源码清单](../updates/2026-11-26-tqLLM/README.md)，保留原来13项目的历史记录。
+- 源码状态与采集时间见[统一版本快照](../SNAPSHOTS.md)。
 
 ## 结论
 
@@ -17,7 +17,7 @@ tqLLM 最值得借鉴的是：**量化格式与 kernel/布局一体化；按格�
 
 ## 方法与策略
 
-下面“源码可见”仅说明存在相应实现；入口、默认值、模型适配和真机收益需要分别确认。表中代码链接均对应以上commit；固定版本远端链接另存于本次evidence.csv。
+下面“源码可见”仅说明存在相应实现；入口、默认值、模型适配和真机收益需要分别确认。表中代码链接均对应以上commit；固定版本远端链接另存于[统一源码证据](../evidence.csv)。
 
 | 方法 | 实现与优化目的 | 条件、默认值与边界 | 源码证据 |
 | --- | --- | --- | --- |
@@ -82,7 +82,7 @@ TqCache“原codec的host搬运”、TQ低位KV、`kv-compact`的stand-in，以�
 
 ## 与已有项目的比较
 
-| 方向 | tqLLM提供的新参考细节 | 与先前档案的关系 |
+| 方向 | tqLLM的实现细节 | 与其他项目的关系 |
 | --- | --- | --- |
 | 量化格式与内核 | TQ4/TQT同4.125bpw的不同codec；离线Hessian校准；native/dequant成本交点 | 补充Sync-Strata/YASAKANI的格式协同；名称相似不代表比特流可互换 |
 | 显存适配 | 明确fit_lossy、最终配置告知、WSL/UMA计数和reload成本 | 补充Strata/XeStrata/TensorFold的预算策略；容量达标必须带配置说明 |
@@ -112,4 +112,6 @@ LoRA的device scale可被graph读取，是参数更新的一种方式；它不�
 
 - [跨项目方法索引](../METHODS.md)
 - [ComfyUI迁移清单](../COMFYUI.md)
-- [本次版本、哈希和固定源码链接](../updates/2026-11-26-tqLLM/README.md)
+- [统一版本快照](../SNAPSHOTS.md)
+- [源码定位与固定版本链接](../evidence.csv)
+- [源码文件及哈希清单](../source-files.csv)

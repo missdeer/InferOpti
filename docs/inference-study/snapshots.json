@@ -1,7 +1,207 @@
 {
-  "captured_at_utc": "2026-11-26T05:44:38.927362+00:00",
-  "scope": "Local checkouts only; no fetch or checkout. Snapshot made before study documentation writes.",
+  "captured_at_utc": "2026-11-26T06:18:35.650042+00:00",
+  "scope": "Unified source-study catalog. Each repository retains its original capture time and commit; parent observations are historical metadata. No fetch or checkout.",
   "repositories": [
+    {
+      "path": "ComfyUI/ComfyUI",
+      "commit": "a277b5bf213e8a44fa34817b7770b54f86ef4cea",
+      "commit_date": "2026-11-18T16:41:27-05:00",
+      "subject": "ComfyUI v0.46.0",
+      "branch": "HEAD",
+      "origin": "https://github.com/Comfy-Org/ComfyUI",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/basalt",
+      "commit": "5b8a82c6b7e1069adbce42854e0732b2b19e4f32",
+      "commit_date": "2026-11-25T13:44:41-07:00",
+      "subject": "community: miloaissatu's RTX 5080 runs on 0.5.7 (Inkling-2-Mini int8 113.8, Flash-Next IQ3_S 135.6 tok/s decode) (#749)",
+      "branch": "HEAD",
+      "origin": "https://github.com/jesdga95/basalt.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/Cheetah",
+      "commit": "e3451a52872c95e8c3af0d347c20dbd55004c6fa",
+      "commit_date": "2026-11-25T13:18:48+08:00",
+      "subject": "1.2.1",
+      "branch": "HEAD",
+      "origin": "https://github.com/DA3M0/Cheetah.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/kinetic",
+      "commit": "1b671b9eea0db10c1d22c51bf524d496d6c6736c",
+      "commit_date": "2026-11-24T12:35:28+01:00",
+      "subject": "Merge pull request #34 from brianporeilly/pr/vulkan-matrix",
+      "branch": "HEAD",
+      "origin": "https://github.com/Veloresearch/kinetic.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/Maya",
+      "commit": "53885cef8faf0d3b3f7e28c0b1537a056c1f3ecf",
+      "commit_date": "2026-11-25T21:45:25+00:00",
+      "subject": "README: donation addresses (Dash, Bitcoin, Ethereum) under the support buttons",
+      "branch": "HEAD",
+      "origin": "https://github.com/mw00/project-maya.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/QuixiInfer",
+      "commit": "dc5dbc1bb1cf7a31f6e8a240f7a34bdf2014268b",
+      "commit_date": "2026-11-20T19:13:34-05:00",
+      "subject": "handoff and README: QX_DS_CHUNK_RES=1e6 is on in the production unit",
+      "branch": "master",
+      "origin": "https://github.com/QuixiAI/QuixiInfer.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/Speedy",
+      "commit": "1f172963a0a483672381e74254b283df22c25e81",
+      "commit_date": "2026-11-24T07:53:23+02:00",
+      "subject": "Speedy 0.5.5 (#32)",
+      "branch": "HEAD",
+      "origin": "https://github.com/DevDock-AI/Speedy.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/splash",
+      "commit": "d40c250ff248938edebdb91fb6124514e32daeaa",
+      "commit_date": "2026-11-24T17:28:00-08:00",
+      "subject": "Fix long conversations on Inkling-2-Mini and Flint: a lane takes back the window tails its states pinned (#842)",
+      "branch": "HEAD",
+      "origin": "https://github.com/incoai/splash.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/Strata",
+      "commit": "c234774038d1c9249cb33637d27b895d47b39786",
+      "commit_date": "2026-11-25T23:59:41+01:00",
+      "subject": "fix(packaging): bundle libgomp.so.1 with the engine, like libatomic.so.1",
+      "branch": "HEAD",
+      "origin": "https://github.com/Niko1221/Strata.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/sync-strata",
+      "commit": "22b5db9ddd60768fab3a33cb19fbde36084e2dec",
+      "commit_date": "2026-11-21T23:36:23+09:00",
+      "subject": "Point engine/ to sync-strata-engine, a fork of Strata that keeps upstream's history and authors; add CREDITS.md",
+      "branch": "main",
+      "origin": "https://github.com/hiruhiru2005/sync-strata.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "gitlinks": [
+        {
+          "path": "engine",
+          "recorded_commit": "824dc0a7811456465bb9864c676381c2d7c72b5f"
+        }
+      ],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/sync-strata/engine",
+      "commit": "824dc0a7811456465bb9864c676381c2d7c72b5f",
+      "commit_date": "2026-11-21T23:20:34+09:00",
+      "subject": "Add SYNC-STRATA.md: what this fork is, its branches and tags, and the commit IDs in earlier notes",
+      "branch": "HEAD",
+      "origin": "https://github.com/hiruhiru2005/sync-strata-engine.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/TensorFold",
+      "commit": "84d9b6ba1367eddd4f97655185a597b5f909be6c",
+      "commit_date": "2026-11-26T03:17:58+00:00",
+      "subject": "changelog: each line once under Unreleased",
+      "branch": "HEAD",
+      "origin": "https://github.com/ashhart/TensorFold.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/tqLLM",
+      "commit": "7df840632cd3f108de459e0944b9b6d115532689",
+      "commit_date": "2026-11-25T22:53:14+00:00",
+      "subject": "tqLLM 1.8.3: first drafted reply at full speed (#106), stable dense kernels (#105), faster Mac experts (#109)",
+      "branch": "main",
+      "origin": "https://github.com/turbo-tan/tqllm.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T06:18:35.650042+00:00"
+    },
+    {
+      "path": "inferences/XeMaya",
+      "commit": "8fa4141666e10d81bf932ab4625aa52a37eed4bd",
+      "commit_date": "2026-11-12T04:40:11+00:00",
+      "subject": "xemaya: 0.1.0-beta.1 published; what its build was checked on",
+      "branch": "main",
+      "origin": "https://github.com/Jumbomuffin777/XeMaya.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/XeStrata",
+      "commit": "aadd4f9fea9b5b319855826f6a33c72dce5b529e",
+      "commit_date": "2026-11-25T22:51:50+09:00",
+      "subject": "Windows: cudnn-frontend の NVRTC も import library でつなぎ遅延ロードする",
+      "branch": "HEAD",
+      "origin": "https://github.com/MistVVK/XeStrata.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    },
+    {
+      "path": "inferences/yasakani",
+      "commit": "631fdfd01f071bdb9131e26da8e06d5ddc39b2a8",
+      "commit_date": "2026-11-25T13:58:41+09:00",
+      "subject": "docs: the names of the two users who reported the 0.3.4 rule on 24 GB cards (0.3.5 entry)",
+      "branch": "HEAD",
+      "origin": "https://github.com/yasakani-dev/yasakani.git",
+      "tracked_dirty": false,
+      "untracked_entries": 0,
+      "status_porcelain": [],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
+    }
+  ],
+  "parent_history": [
     {
       "path": ".",
       "commit": "b8e3baaa6f686ae5381c728794ea7f010f7fc470",
@@ -76,178 +276,35 @@
           "path": "inferences/yasakani",
           "recorded_commit": "631fdfd01f071bdb9131e26da8e06d5ddc39b2a8"
         }
-      ]
+      ],
+      "captured_at_utc": "2026-11-26T05:44:38.927362+00:00"
     },
     {
-      "path": "inferences/basalt",
-      "commit": "5b8a82c6b7e1069adbce42854e0732b2b19e4f32",
-      "commit_date": "2026-11-25T13:44:41-07:00",
-      "subject": "community: miloaissatu's RTX 5080 runs on 0.5.7 (Inkling-2-Mini int8 113.8, Flash-Next IQ3_S 135.6 tok/s decode) (#749)",
-      "branch": "HEAD",
-      "origin": "https://github.com/jesdga95/basalt.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/Cheetah",
-      "commit": "e3451a52872c95e8c3af0d347c20dbd55004c6fa",
-      "commit_date": "2026-11-25T13:18:48+08:00",
-      "subject": "1.2.1",
-      "branch": "HEAD",
-      "origin": "https://github.com/DA3M0/Cheetah.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/kinetic",
-      "commit": "1b671b9eea0db10c1d22c51bf524d496d6c6736c",
-      "commit_date": "2026-11-24T12:35:28+01:00",
-      "subject": "Merge pull request #34 from brianporeilly/pr/vulkan-matrix",
-      "branch": "HEAD",
-      "origin": "https://github.com/Veloresearch/kinetic.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/Maya",
-      "commit": "53885cef8faf0d3b3f7e28c0b1537a056c1f3ecf",
-      "commit_date": "2026-11-25T21:45:25+00:00",
-      "subject": "README: donation addresses (Dash, Bitcoin, Ethereum) under the support buttons",
-      "branch": "HEAD",
-      "origin": "https://github.com/mw00/project-maya.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/QuixiInfer",
-      "commit": "dc5dbc1bb1cf7a31f6e8a240f7a34bdf2014268b",
-      "commit_date": "2026-11-20T19:13:34-05:00",
-      "subject": "handoff and README: QX_DS_CHUNK_RES=1e6 is on in the production unit",
+      "path": ".",
+      "commit": "adfa2ae9a4c04fedbb66cce5a9bbff82f3c635bb",
+      "commit_date": "2026-11-26T14:09:39+08:00",
+      "subject": "add tqLLM as submodule",
       "branch": "master",
-      "origin": "https://github.com/QuixiAI/QuixiInfer.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/Speedy",
-      "commit": "1f172963a0a483672381e74254b283df22c25e81",
-      "commit_date": "2026-11-24T07:53:23+02:00",
-      "subject": "Speedy 0.5.5 (#32)",
-      "branch": "HEAD",
-      "origin": "https://github.com/DevDock-AI/Speedy.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/splash",
-      "commit": "d40c250ff248938edebdb91fb6124514e32daeaa",
-      "commit_date": "2026-11-24T17:28:00-08:00",
-      "subject": "Fix long conversations on Inkling-2-Mini and Flint: a lane takes back the window tails its states pinned (#842)",
-      "branch": "HEAD",
-      "origin": "https://github.com/incoai/splash.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/Strata",
-      "commit": "c234774038d1c9249cb33637d27b895d47b39786",
-      "commit_date": "2026-11-25T23:59:41+01:00",
-      "subject": "fix(packaging): bundle libgomp.so.1 with the engine, like libatomic.so.1",
-      "branch": "HEAD",
-      "origin": "https://github.com/Niko1221/Strata.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/sync-strata",
-      "commit": "22b5db9ddd60768fab3a33cb19fbde36084e2dec",
-      "commit_date": "2026-11-21T23:36:23+09:00",
-      "subject": "Point engine/ to sync-strata-engine, a fork of Strata that keeps upstream's history and authors; add CREDITS.md",
-      "branch": "main",
-      "origin": "https://github.com/hiruhiru2005/sync-strata.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": [],
+      "origin": "",
+      "tracked_dirty": true,
+      "untracked_entries": 7,
+      "status_porcelain": [
+        "M README.md",
+        "?? ComfyUI",
+        "?? ComfyUI-Optimization-business.md",
+        "?? ComfyUI-Optimization-tech.md",
+        "?? ComfyUI_AIGC_优化业务与技术路线研究报告_2026-11.pdf",
+        "?? ComfyUI_Optimization_Business_Technical_Report_2026-11-23.pdf",
+        "?? docs/",
+        "?? performance-checks.txt"
+      ],
       "gitlinks": [
         {
-          "path": "engine",
-          "recorded_commit": "824dc0a7811456465bb9864c676381c2d7c72b5f"
+          "path": "inferences/tqLLM",
+          "recorded_commit": "7df840632cd3f108de459e0944b9b6d115532689"
         }
-      ]
-    },
-    {
-      "path": "inferences/TensorFold",
-      "commit": "84d9b6ba1367eddd4f97655185a597b5f909be6c",
-      "commit_date": "2026-11-26T03:17:58+00:00",
-      "subject": "changelog: each line once under Unreleased",
-      "branch": "HEAD",
-      "origin": "https://github.com/ashhart/TensorFold.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/XeMaya",
-      "commit": "8fa4141666e10d81bf932ab4625aa52a37eed4bd",
-      "commit_date": "2026-11-12T04:40:11+00:00",
-      "subject": "xemaya: 0.1.0-beta.1 published; what its build was checked on",
-      "branch": "main",
-      "origin": "https://github.com/Jumbomuffin777/XeMaya.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/XeStrata",
-      "commit": "aadd4f9fea9b5b319855826f6a33c72dce5b529e",
-      "commit_date": "2026-11-25T22:51:50+09:00",
-      "subject": "Windows: cudnn-frontend の NVRTC も import library でつなぎ遅延ロードする",
-      "branch": "HEAD",
-      "origin": "https://github.com/MistVVK/XeStrata.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/yasakani",
-      "commit": "631fdfd01f071bdb9131e26da8e06d5ddc39b2a8",
-      "commit_date": "2026-11-25T13:58:41+09:00",
-      "subject": "docs: the names of the two users who reported the 0.3.4 rule on 24 GB cards (0.3.5 entry)",
-      "branch": "HEAD",
-      "origin": "https://github.com/yasakani-dev/yasakani.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "inferences/sync-strata/engine",
-      "commit": "824dc0a7811456465bb9864c676381c2d7c72b5f",
-      "commit_date": "2026-11-21T23:20:34+09:00",
-      "subject": "Add SYNC-STRATA.md: what this fork is, its branches and tags, and the commit IDs in earlier notes",
-      "branch": "HEAD",
-      "origin": "https://github.com/hiruhiru2005/sync-strata-engine.git",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
-    },
-    {
-      "path": "ComfyUI/ComfyUI",
-      "commit": "a277b5bf213e8a44fa34817b7770b54f86ef4cea",
-      "commit_date": "2026-11-18T16:41:27-05:00",
-      "subject": "ComfyUI v0.46.0",
-      "branch": "HEAD",
-      "origin": "https://github.com/Comfy-Org/ComfyUI",
-      "tracked_dirty": false,
-      "untracked_entries": 0,
-      "status_porcelain": []
+      ],
+      "captured_at_utc": "2026-11-26T06:18:35.650042+00:00"
     }
   ]
 }
